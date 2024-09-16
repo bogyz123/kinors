@@ -5,7 +5,7 @@ import Stats from "./components/Statistika";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/kinors">
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
