@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import KenoAPI from "./KenoAPI";
 
 export default function Stats() {
+  useEffect(() => {
+    document.title = "Grcki Kino | Statistike brojeva";
+  }, []);
   const API = new KenoAPI();
   const numbers = Array.from({ length: 81 }, (_, index) => index != 0 && index);
   const [myNumbers, setMyNumbers] = useState([]);
@@ -55,12 +58,12 @@ export default function Stats() {
               ))}
             </div>
             <span className="text-center">
-              je izasla <span className="text-red-500 text-center">{displayedDraws.length}</span> puta u zadnjih <span className="text-blue-500 font-bold">50</span> izvlacenja. (POSLEDNJI PRE <span className="font-bold text-blue-600">{currentDrawId && displayedDraws.length > 0 ? currentDrawId - displayedDraws[0].drawId : "N/A"}</span> KOLA)
+              je izašla <span className="text-red-500 text-center">{displayedDraws.length}</span> puta u zadnjih <span className="text-blue-500 font-bold">50</span> izvlačenja. (POSLEDNJI PRE <span className="font-bold text-blue-600">{currentDrawId && displayedDraws.length > 0 ? currentDrawId - displayedDraws[0].drawId : "N/A"}</span> KOLA)
             </span>
 
             {displayedDraws.length > 0 && (
               <span className="text-center uppercase font-bold pt-5">
-                U proseku izlazi svakih <span className="text-red-500">{Math.floor(50 / displayedDraws.length)}</span> izvlacenja.
+                U proseku izlazi svakih <span className="text-red-500">{Math.floor(50 / displayedDraws.length)}</span> izvlačenja.
               </span>
             )}
           </>

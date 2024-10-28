@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 class KenoAPI {
   async getLastGames(amount) {
     const api = "https://api.opap.gr/draws/v3.0/1100/last/" + amount;

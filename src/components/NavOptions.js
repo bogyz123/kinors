@@ -1,12 +1,12 @@
 export const data = [
   {
-    title: "Poslednja izvlacenja",
-    meta: "Pogledaj poslednja izvlacenja brojeva",
+    title: "Poslednja izvlačenja",
+    meta: "Pogledaj poslednja izvlačenja brojeva",
     href: "/",
   },
   {
     title: "Moji brojevi",
-    meta: "Kada su izasli vasi brojevi",
+    meta: "Kada su izašli vaši brojevi",
     href: "mynumbers",
   },
 ];
