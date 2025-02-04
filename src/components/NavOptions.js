@@ -9,4 +9,9 @@ export const data = [
     meta: "Kada su izašli vaši brojevi",
     href: "mynumbers",
   },
+  {
+    title: "O igri",
+    meta: "Saznajte vise o Kino igri",
+    href: "kino",
+  }
 ];

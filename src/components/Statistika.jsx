@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import KenoAPI from "./KenoAPI";
+import translations from "../components/translations";
 
-export default function Stats() {
+export default function Stats({language}) {
   useEffect(() => {
     document.title = "Grcki Kino | Statistike brojeva";
   }, []);
@@ -43,7 +44,7 @@ export default function Stats() {
 
   return (
     <div className="text-white  w-full h-full font-mont flex flex-col font-kanit">
-      <p className="text-center py-5">Moja kombinacija</p>
+      <p className="text-center py-5">{translations["statistics"].title[language]}</p>
       <div className="grid grid-cols-8 grid-flow-row-dense md:grid-cols-8 grid-rows-max  gap-2 p-5 justify-center font-mont">
         {numbers.map(
           (number) =>
@@ -54,10 +55,10 @@ export default function Stats() {
             )
         )}
       </div>
-      <div className=" flex flex-col w-100 font-mont px-5">
+      <div className="flex flex-col w-100 font-mont px-5">
         {myNumbers.length > 0 && (
           <>
-            <span className="text-center uppercase py-5 font-bold">Moja kombinacija</span>
+            <span className="text-center uppercase py-5 font-bold">{translations["statistics"].title[language]}</span>
             <div className="flex gap-2 justify-center p-3">
               {myNumbers.map((num, index) => (
                 <p key={num} className="font-bold text-2xl">
@@ -67,12 +68,12 @@ export default function Stats() {
               ))}
             </div>
             <span className="text-center">
-              je izašla <span className="text-red-500 text-center">{displayedDraws.length}</span> puta u zadnjih <span className="text-blue-500 font-bold">50</span> izvlačenja. (POSLEDNJI PRE <span className="font-bold text-blue-600">{displayedDraws.length > 0 ? last50Draws[0].drawId - displayedDraws[0].drawId : "N/A"}</span> KOLA)
+            {translations["statistics"].lastDrawn[language]({times: displayedDraws.length, last: last50Draws[0]?.drawId - displayedDraws[0]?.drawId })}
             </span>
 
             {displayedDraws.length > 0 && (
               <span className="text-center uppercase font-bold pt-5">
-                U proseku izlazi svakih <span className="text-red-500">{Math.floor(50 / displayedDraws.length)}</span> izvlačenja.
+                {translations["statistics"].average[language]({avg: Math.floor(50 / displayedDraws.length)})}
               </span>
             )}
           </>
