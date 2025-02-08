@@ -33,8 +33,28 @@
                 },
                 {
                     question: {
+                        en: "Are there any numbers that come up more frequently than others?",
+                        sr: "Da li postoje brojevi koji izlaze češće nego ostali?",
+                    },
+                    answer: {
+                        en: "The institute’s (CTI) random number generator system ensures that all 80 numbers have the same chances to occur in every draw, regardless of their previous occurrence or delay history.", 
+                        sr: "Institutov (CTI) sistem generatora slučajnih brojeva osigurava da svih 80 brojeva ima iste šanse da se pojave u svakom izvlačenju, bez obzira na njihovu prethodnu pojavu ili istoriju kašnjenja.",
+                    }
+                },
+                {
+                    question: {
+                        en: "Why are draws held 10-15 seconds after the expiration of the participation closing?",
+                        sr: "Zašto se izvlačenja održavaju 10-15 sekundi nakon isteka zatvaranja učešća?",
+                    },
+                    answer: {
+                        en: "Results are generated just after the expiration of the 5’ minute betting period, but are transmitted a few seconds later at the screens, due to specifications of the transmission system.You can check if your entry ticket wins, even before the start of the broadcast, as the system has already been updated with the winning combination.",
+                        sr: "Rezultati se generišu odmah nakon isteka perioda klađenja od 5 minuta, ali se prenose nekoliko sekundi kasnije na ekranima, zbog specifikacija sistema prenosa.Možete proveriti da li je vaš ulazni tiket dobitan, čak i pre početka emitovanja, pošto je sistem već ažuriran sa dobitnom kombinacijom.",
+                    }
+                },
+                {
+                    question: {
                         en: "How can I check the previous Kino draw results?",
-                        sr: "Kako mogu da proverim rezultate prethodnih izvlačenja Kine?"
+                        sr: "Kako mogu da proverim rezultate prethodnih izvlačenja Kino-a?"
                     },
                     answer: {
                         en: "To check the results of previous draws, visit the 'Last Draws' section on our website. Here you can see the last 10 drawn numbers and a timer showing the time until the next draw.",
@@ -50,11 +70,23 @@
                         en: "The number statistics, including how many times they were drawn and their average, can be found in the 'My Numbers' section.",
                         sr: "Statistika brojeva, koliko puta su izvuceni u koliko izvlacenja i prosek se moze videti na sekciji 'Moji brojevi'."
                     }
+                },
+                {
+                    question: {
+                        en: "How is this website made?",
+                        sr: "Kako je ovaj web-sajt napravljen?",
+                    },
+                    answer: {
+                        en: "This website is made by Bogdan (https://github.com/bogyz123) with React.JS & Tailwind using OPAP REST API (https://www.opap.gr/en/web-services)",
+                        sr: "Ovaj web-sajt je napravljen by Bogdan (https://github.com/bogyz123) sa React-om i Tailwind korsteci OPAP-ov REST API (https://www.opap.gr/en/web-services)",
+                    }
                 }
             ]
         },
         statistics: {
             title: {en: "My combination", sr: "Moja kombinacija"},
+            clearButton: {en: "Clear All", sr: "Ocistiti sve"},
+            hotCold: {en: "Show Hot/Cold numbers", sr: "Pokazati tople/hladne brojeve"},
             lastDrawn: {
                 en: ({times, last}) => (<span>was drawn <strong style={{color:'crimson'}}>{times}</strong> in the last 50 draws. (LAST {last || 0} draws ago.)</span>),
                 sr: ({times, last}) => (<span>je izašla <strong style={{color:'crimson'}}>{times}</strong> puta u zadnjih 50 izvlačenja. (POSLEDNJI PRE {last || 0} KOLA)</span>),

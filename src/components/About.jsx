@@ -18,7 +18,7 @@ export default function About({language})
             <h1 className="text-center">{language === "sr" ? "Grcki Kino" : "Greek Keno"}</h1>
             {translations["aboutUs"].questions.map((question, index) => 
                 <div key={index} className="cursor-pointer " onClick={() => expandQuestion(index)}>
-                    <h1 className="my-4">{question.question[language]}</h1>
+                    <h1 className="my-4 border-b border-purple-700">{question.question[language]}</h1>
                     <div className={`transition-all ml-2 border-l-2 pl-2 p-4 rounded-md bg-[rgb(26,23,68)] duration-150  opacity-0 ${openedItemId === index ? "scale-y-100 opacity-100 visible" : "scale-y-0 h-0 opacity-0 hidden"}`}>
                         {question.answer[language]}
                     </div>

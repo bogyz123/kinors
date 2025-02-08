@@ -15,8 +15,8 @@ body,
 .zoom {
   animation: zoom forwards;
   animation-timeline: view();
-  animation-range-start: cover;
-  animation-range-end: contain;
+  animation-range-start: 0px;
+  animation-range-end: 50%;
   transition: all 0.3s;
 }
 @keyframes zoom {

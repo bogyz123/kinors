@@ -26,7 +26,9 @@ export default function Homepage({language}) {
     const getInitialData = () => {
       API.getLastGames(10)
         .then((res) => {
+         if(res) {
           setDrawData([...res]);
+         }
         })
         .catch((error) => {
           console.error("Error fetching last games:", error);
