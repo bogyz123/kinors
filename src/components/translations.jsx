@@ -56,12 +56,12 @@
         statistics: {
             title: {en: "My combination", sr: "Moja kombinacija"},
             lastDrawn: {
-                en: ({times, last}) => `was drawn ${times} in the last 50 draws. (LAST ${last || 0} draws ago.)`,
-                sr: ({times, last}) => `je izašla ${times} puta u zadnjih 50 izvlačenja. (POSLEDNJI PRE ${last || 0} KOLA)`,
+                en: ({times, last}) => (<span>was drawn <strong style={{color:'crimson'}}>{times}</strong> in the last 50 draws. (LAST {last || 0} draws ago.)</span>),
+                sr: ({times, last}) => (<span>je izašla <strong style={{color:'crimson'}}>{times}</strong> puta u zadnjih 50 izvlačenja. (POSLEDNJI PRE {last || 0} KOLA)</span>),
             },
             average: {
-                en: ({avg}) => `On average, it is drawn every ${avg} draws`,
-                sr: ({avg}) => `U proseku izlazi svakih ${avg} izvlačenja.`
+                en: ({avg}) => (<span>On average, it is drawn every <span style={{color:'crimson'}}>{avg}</span> draws.</span>),
+                sr: ({avg}) => (<span>U proseku izlazi svakih <span style={{color:'crimson'}}>{avg}</span> izvlačenja.</span>)
             }
         },
     }

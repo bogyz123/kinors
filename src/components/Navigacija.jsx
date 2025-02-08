@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import sr from "../assets/serbia.png";
 import en from "../assets/uk.png";
-import { data } from "./NavOptions";
 import translations from "../components/translations";
 
 export default function Navbar({ setLanguage, language }) {
