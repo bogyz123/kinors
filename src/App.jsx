@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
+import About from "./components/About";
 import Homepage from "./components/Homepage";
 import Navbar from "./components/Navigacija";
 import Stats from "./components/Statistika";
-import About from "./components/About";
-import { useEffect, useState } from "react";
 
 
 function App() {
