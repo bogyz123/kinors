@@ -104,8 +104,8 @@ export default function Stats({language}) {
   return (
     <div className="text-white  w-full h-full font-mont flex flex-col font-kanit">
       <p className="text-center py-5">{translations["statistics"].title[language]}</p>
-      <div>
-        {myNumbers.length > 0 && <button className="mx-auto bg-red-500 flex rounded-md p-2 hover:opacity-80 transition-opacity duration-150" onClick={clearNumbers}>{translations["statistics"].clearButton[language]}</button>}
+      <div className="w-[90%] md:w-auto mx-auto text-center">
+        {myNumbers.length > 0 && <button className="mx-auto w-full text-center bg-red-500 rounded-md p-2 hover:opacity-80 transition-opacity duration-150" onClick={clearNumbers}>{translations["statistics"].clearButton[language]}</button>}
       </div>
       <div className="grid grid-cols-8 grid-flow-row-dense md:grid-cols-8 grid-rows-max  gap-2 p-5 justify-center font-mont">
         {numbers.map(
@@ -118,9 +118,11 @@ export default function Stats({language}) {
         )}
       </div>
       <div className="flex w-[90%] mx-auto items-center justify-end">
-        <div className="flex gap-2">
-        <label htmlFor="enableTemperature">{translations["statistics"].hotCold[language]}</label>
-        <input type="checkbox" id="enableTemperature" defaultChecked={false} onChange={(e) => handleTemperature(e)} />
+        <div className="flex gap-2 items-center ">
+        <label htmlFor="enableTemperature" className="text-lg font-medium text-gray-900 dark:text-gray-100">
+        {translations["statistics"].hotCold[language]}
+      </label>
+        <input type="checkbox" id="enableTemperature" className="w-4 h-4 md:w-6 md:h-6 accent-red-500 focus:ring focus:ring-blue-950 cursor-pointer"  defaultChecked={false} onChange={(e) => handleTemperature(e)} />
         </div>
       </div>
       <div className="flex flex-col w-100 font-mont px-5">
