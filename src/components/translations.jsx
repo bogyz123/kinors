@@ -85,7 +85,7 @@
         },
         statistics: {
             title: {en: "My combination", sr: "Moja kombinacija"},
-            clearButton: {en: "Clear All", sr: "Ocistiti sve"},
+            clearButton: {en: "Clear All", sr: "Očistiti sve"},
             hotCold: {en: "Show Hot/Cold numbers", sr: "Pokazati tople/hladne brojeve"},
             lastDrawn: {
                 en: ({times, last}) => (<span>was drawn <strong style={{color:'crimson'}}>{times}</strong> in the last 50 draws. (LAST {last || 0} draws ago.)</span>),
@@ -94,6 +94,11 @@
             average: {
                 en: ({avg}) => (<span>On average, it is drawn every <span style={{color:'crimson'}}>{avg}</span> draws.</span>),
                 sr: ({avg}) => (<span>U proseku izlazi svakih <span style={{color:'crimson'}}>{avg}</span> izvlačenja.</span>)
+            },
+            modal: {
+                title: {en: "Combination Generator", sr: "Generator kombinacija"},
+                amount: {en: "Amount", sr: "Količina brojeva za generisanje"},
+                byFrequent: {en: "Generate by most frequent", sr: "Generisati najčešće izvučene brojeve"},
             }
         },
     }

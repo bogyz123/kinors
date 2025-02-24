@@ -19,6 +19,23 @@ body,
   animation-range-end: 50%;
   transition: all 0.3s;
 }
+#modal {
+  animation: fromLeft 500ms ease forwards;
+  top: 50%;
+  left: 50%;
+
+}
+@keyframes fromLeft {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
+}
+
 @keyframes zoom {
   from {
     scale: 0.7;

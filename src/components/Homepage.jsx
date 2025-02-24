@@ -10,6 +10,7 @@ export default function Homepage({language}) {
   const API = new KenoAPI();
 
   useEffect(() => {
+    document.title = "Grčki kino | Rezultati | Statistika";
     let interval;
     const fetchTime = () => {
       // this function gets the time until next draw in ms, converts it to seconds and updates the state.
@@ -22,6 +23,7 @@ export default function Homepage({language}) {
           console.error("Error fetching time for next game: ", error);
         });
     };
+   
 
     const getInitialData = () => {
       API.getLastGames(10)
