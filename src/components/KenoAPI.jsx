@@ -53,10 +53,10 @@ class KenoAPI {
     return containedDraws.sort((a,b) => b.drawId - a.drawId);
   }
    generateRandomCombination(amount, hotNumbers) {
-    if (amount > 20 || amount < 1) {
+    if (amount > 15 || amount < 1) {
       throw new Error("Amount must be between 1 and 20");
     }
-    
+ 
     const numbers = new Set();
     
    if (hotNumbers) {

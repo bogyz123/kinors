@@ -99,6 +99,7 @@
                 title: {en: "Combination Generator", sr: "Generator kombinacija"},
                 amount: {en: "Amount", sr: "Količina brojeva za generisanje"},
                 byFrequent: {en: "Generate by most frequent", sr: "Generisati najčešće izvučene brojeve"},
+                byFrequentExplanation: {en: "Checking this will generate numbers that are the most frequent recently.", sr: "Ovom opcijom generišete najčešće izvučene brojeve."}
             }
         },
     }

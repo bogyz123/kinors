@@ -16,6 +16,7 @@ export default function Stats({language}) {
   const [modalData, setModalData] = useState({
     amount: 1,
     byFrequency: null,
+    error: null,
   });
   const [modalResult, setModalResult] = useState([]);
   //#endregion
@@ -54,20 +55,28 @@ export default function Stats({language}) {
     }
   };
   const handleGenerate = () => {
-    if (modalData.amount) {
-    const data = API.generateRandomCombination(modalData.amount, (modalData.byFrequency) && last50Draws);
-    if (data) {
-      setModalResult([...data]);
-    }
+      if (modalData.amount) {
+      try {
+        const data = API.generateRandomCombination(modalData.amount, (modalData.byFrequency) && last50Draws);
+      if (data) {
+        setModalResult([...data]);
+      }
+      }
+      catch (err) {
+        setModalData((prev) => ({...prev, error: err.message}));
+      }
     }
   }
+
+
+
+
   const clearNumbers = () => {
     const selectedNumbers = document.querySelectorAll(".bg-gradient-to-r");
     selectedNumbers.forEach((e) => e.classList.remove("bg-gradient-to-r"));
     setMyNumbers([]);
   }
   const handleTemperature = (e) => {
-  
     if (e.target.checked) {
       if (!frequencyObj) {
         getNumberFrequency();
@@ -174,7 +183,7 @@ export default function Stats({language}) {
         )}
       </div>
       <div>
-        {isModalOpen && <div className="bg-blue-900 w-[90%]  mx-auto rounded-md p-4 absolute  transition-transform duration-500 backdrop-blur-md bg-black/50" id="modal">
+        {isModalOpen && <div className="bg-blue-950 border  w-[90%] mx-auto rounded-md p-4 absolute  transition-transform duration-500 backdrop-blur-md bg-black/50" id="modal">
         <div className="absolute top-2 right-2 cursor-pointer text-xl" onClick={closeModal}>X</div>
         <span className="mx-auto font-kanit text-xl">{translations["statistics"].modal?.title[language]}</span>
         <div className="my-4 flex flex-col">
@@ -188,7 +197,8 @@ export default function Stats({language}) {
   placeholder="Amount of numbers to generate"
   onChange={(e) => e.target.value && e.target.value > 1 && e.target.value <= 80 && setModalData((prev) => ({...prev, amount: e.target.value}))}
 />
-<div className="flex gap-2 place-items-center mt-2">
+<div className="flex gap-2 place-items-center my-2 flex-col md:flex-row items-start md:items-center">
+  <div className="flex gap-2 place-items-center w-fit">
   <span>{translations["statistics"].modal.byFrequent[language]}</span>
   <input 
   type="checkbox" 
@@ -196,6 +206,8 @@ export default function Stats({language}) {
   onChange={(e) => setModalData((prev) => ({...prev, byFrequency: e.target.checked}))}
   className="w-6 h-6 text-blue-500 bg-blue-900 border border-blue-700 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition duration-300 ease-in-out checked:bg-blue-500 checked:border-blue-500 hover:scale-105 cursor-pointer"
 />
+  </div>
+{modalData.byFrequency && <small className="text-orange-500 starting:-translate-x-[10px] starting:opacity-0 opacity-100 translate-y-[0] [transition-transform transition-opacity] duration-300 ease">{translations["statistics"].modal.byFrequentExplanation[language]}</small>}
 
 </div>
 
@@ -203,6 +215,7 @@ export default function Stats({language}) {
   {modalResult.length > 0 && <div className="flex bg-blue-800 justify-center mx-auto rounded-md w-full p-4 text-xl md:text-2xl">{modalResult + ""}</div>}
 
 <button className="bg-blue-800 rounded-md p-2 mt-2 hover:bg-blue-700 transition-colors duration-200 ease" onClick={handleGenerate}>Generate</button>
+{modalData.error && <p className="text-red-500 text-center mt-2">{modalData.error}!</p>}
 
 
 

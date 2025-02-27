@@ -7,5 +7,7 @@ module.exports = {
       kanit: ["Kanit, sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [({ addVariant }) => {
+    addVariant("starting", "@starting-style");
+  }],
 };
